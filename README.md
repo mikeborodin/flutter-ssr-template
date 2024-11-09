@@ -2,13 +2,4 @@
 
 This project explores how we can make Flutter app more dynamic using Remote Flutter Widgets library.
 
-┌─────────────────┐                   ┌──────────────────┐
-│                 │                   │                  │
-│                 │                   │                  │
-│                 │    Splash screen  │                  │
-│   Flutter app   ├─────────────────► │   Cloudflare     │
-│                 │                   │                  │
-│ ┌─────────────┐ │                   │   Wasm Worker    │
-│ │ Widgets lib │ │ ◄──────────────── │                  │
-│ └─────────────┘ │   Screen layouts  │                  │
-└─────────────────┘                   └──────────────────┘
+![Image](README-img/241109-185744.jpg)
