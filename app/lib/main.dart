@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared/shared.dart';
 import 'package:store_app/app_layouts/app_layouts_service.dart';
+import 'package:store_app/components/dev_screen.dart';
 
 import 'dynamic_screen.dart';
 
@@ -29,17 +31,17 @@ class App extends StatelessWidget {
       child: MaterialApp(
         title: 'Dynamic App',
         routes: {
-          // '/dev': (context) => const DevScreen(),
-          '/videos': (context) => DynamicScreen(config: layouts.videos!)
+          '/home': (context) => DynamicScreen(config: layouts.home!),
+          '/videos': (context) => DynamicScreen(config: layouts.videos!),
+          '/dev': (context) => const DevScreen(),
         },
-        // routerConfig: goRouter,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: Colors.deepPurple,
           ),
           useMaterial3: true,
         ),
-        initialRoute: '/videos',
+        initialRoute: kDebugMode ? '/dev' : '/home',
       ),
     );
   }

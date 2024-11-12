@@ -30,8 +30,11 @@ class DynamicScreen extends HookConsumerWidget {
     );
 
     useEffect(() {
-      runtime.update(local, localComponentsLibrary());
+      // enabling flutter core widgets so the Server can send Column, Row etc.
       runtime.update(core, createCoreWidgets());
+
+      // enabling our custom widgets.
+      runtime.update(local, localComponentsLibrary());
       runtime.update(remote, widget);
 
       return runtime.dispose;

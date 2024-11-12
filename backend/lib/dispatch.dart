@@ -28,7 +28,7 @@ Future<JSString> dispatch(String url) async {
       }
       return "Fail".toJS;
     case '/layout':
-      final homeTab = parseLibraryFile('''
+      final homeScreen = parseLibraryFile('''
       import local;
       import core;
 
@@ -67,18 +67,35 @@ Future<JSString> dispatch(String url) async {
         ]
       );
       ''');
+      final videoScreen = parseLibraryFile('''
+      import local;
+      import core;
 
+      widget root = Column(
+        children: [
+            YoutubeVideo(
+              url: 'https://www.youtube.com/watch?v=ZWeaikbm57M',
+            ),
+            YoutubeVideo(
+              url: 'https://www.youtube.com/watch?v=l3XuJ7TztVg',
+            ),
+        ]
+        
+      );
+      ''');
+
+      // https://www.youtube.com/watch?v=b5AL0K5UByI
       final encodedJson = jsonEncode(
         AppLayouts(
-          home: _encoded(homeTab),
-          videos: _encoded(homeTab),
+          home: _encoded(homeScreen),
+          videos: _encoded(videoScreen),
         ).toJson(),
       );
 
       return encodedJson.toJS;
 
     default:
-      return "Hey, I don't know this instruction".toJS;
+      return "Response from web assembly".toJS;
   }
 }
 

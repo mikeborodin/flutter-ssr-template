@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:store_app/components/countdown.dart';
+import 'package:store_app/components/cta_button.dart';
 import 'package:store_app/components/lesson_of_the_day.dart';
 import 'package:store_app/components/promo_banner.dart';
 import 'package:store_app/components/promocode_banner.dart';
@@ -34,6 +35,8 @@ class DevScreen extends HookConsumerWidget {
             const SizedBox(height: 8),
             const TromboneImage(),
             const PromocodeBanner(),
+            const CtaButton(ctaText: 'Open home', link: '/home'),
+            const CtaButton(ctaText: 'Open videos', link: '/videos'),
             const PromoBanner(
                 message: 'Did you practice today?',
                 ctaText: 'YES',
